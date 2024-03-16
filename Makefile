@@ -1,8 +1,8 @@
 EXECUTABLE=out.elf
-STM32_LIBS=/opt/STM32Cube_FW_F7_V1.5.0
+STM32_LIBS=/opt/STM32Cube_FW_F7_V1.17.0
 
 CC=arm-none-eabi-gcc
-LD=arm-none-eabi-ld 
+LD=arm-none-eabi-ld
 AR=arm-none-eabi-ar
 AS=arm-none-eabi-as
 CP=arm-none-eabi-objcopy
@@ -77,7 +77,7 @@ OBJ = $(SRC:%.c=$(OBJDIR)/%.o)
 all: $(EXECUTABLE)
 
 $(EXECUTABLE): $(SRC)
-	$(CC) $(CFLAGS) $^ -o $@ -l:STemWin532_CM7_GCC_ot.a -lm
+	$(CC) $(CFLAGS) $^ -o $@ -l:STemWin_CM7_wc32_ot.a -lm
 
 debug_server:
 	sudo openocd -f board/stm32f7discovery.cfg
